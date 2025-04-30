@@ -1,44 +1,61 @@
 "use client";
 
 import Iconify from "@/components/iconify";
-import { useBoolean } from "@/hook/use-boolean";
 import usePopover from "@/hook/use-popover";
 import SearchIcon from "@mui/icons-material/Search";
 import {
-  Box,
   Button,
-  Card,
   InputAdornment,
   MenuItem,
   Popover,
   Stack,
   TextField,
-  Typography,
 } from "@mui/material";
 import { motion } from "framer-motion";
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
+import { useBlog } from "./actions/swr";
+import CardView from "./card";
+import CreateBlog from "./create-blog";
+import { useBoolean } from "@/hook/use-boolean";
+
 type Props = {};
 
 const HomeView = (props: Props) => {
+  const isOpen = useBoolean();
+  const [value, setValue] = useState("Community");
+  const { data, refreshData } = useBlog({
+    value: value === "Community" ? "" : value,
+  });
+
   const popover = usePopover();
   const anchorRef = React.useRef<HTMLButtonElement>(null);
-  const [value, setValue] = useState("Dashboard");
+
+  const [search, setSearch] = useState("");
 
   const hadleGetValue = useCallback(
     (value: string) => {
       setValue(value);
       popover.onClose();
+      refreshData();
     },
-    [setValue, popover]
+    [setValue, popover, refreshData]
   );
+
+  useEffect(() => {
+    if (!isOpen.value) {
+      refreshData();
+    }
+  }, [isOpen.value]);
 
   return (
     <Stack
       sx={{
         width: "100%",
+        padding: 4,
       }}
       spacing={4}
     >
+      <CreateBlog isOpen={isOpen} refreshData={refreshData} />
       <Stack
         sx={{
           flexDirection: { xs: "column", sm: "row" },
@@ -50,6 +67,19 @@ const HomeView = (props: Props) => {
         <TextField
           size={"small"}
           fullWidth
+          sx={{
+            "& .MuiOutlinedInput-root": {
+              "&:hover fieldset": {
+                borderColor: "#49A569",
+              },
+              "&.Mui-focused fieldset": {
+                borderColor: "#49A569",
+              },
+            },
+            "& .MuiInputLabel-root.Mui-focused": {
+              color: "#49A569", // สี label เมื่อ focus
+            },
+          }}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
@@ -57,13 +87,14 @@ const HomeView = (props: Props) => {
               </InputAdornment>
             ),
           }}
+          onChange={(e) => setSearch(e.target.value)}
         />
         <Stack direction={"row"}>
           <Button
             ref={anchorRef}
             id="composition-button"
             aria-haspopup="true"
-            sx={{ color: "#000", width: "150px" }}
+            sx={{ color: "#000", width: "150px", textTransform: "none" }}
             onClick={popover.onOpen}
             endIcon={
               <motion.div
@@ -96,13 +127,11 @@ const HomeView = (props: Props) => {
               horizontal: "left",
             }}
           >
-            <MenuItem onClick={(e) => hadleGetValue("Dashboard")}>
-              Dashboard
-            </MenuItem>
-            <MenuItem onClick={(e) => hadleGetValue("The")}>The</MenuItem>
-            <MenuItem onClick={(e) => hadleGetValue("content")}>
-              content
-            </MenuItem>
+            {STATUS.map((e, index) => (
+              <MenuItem key={index} onClick={() => hadleGetValue(e)}>
+                {e}
+              </MenuItem>
+            ))}
           </Popover>
           <Button
             variant={"contained"}
@@ -114,14 +143,28 @@ const HomeView = (props: Props) => {
                 sx={{ width: "20px", height: "20px" }}
               />
             }
+            onClick={() => {
+              isOpen.onTrue();
+            }}
           >
             Create
           </Button>
         </Stack>
       </Stack>
-      <Card>aaaaa</Card>
+      <CardView data={data.data} search={search} />
     </Stack>
   );
 };
 
 export default HomeView;
+
+const STATUS = [
+  "Community",
+  "History",
+  "Food",
+  "Pets",
+  "Health",
+  "Fashion",
+  "Exercise",
+  "Others",
+];

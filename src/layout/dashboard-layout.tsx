@@ -20,7 +20,7 @@ const DashboardLayout = ({ children }: Props) => {
         }}
       >
         {menu}
-        <Box sx={{ padding: 4, width: 1 }}>{children}</Box>
+        <Box sx={{ width: 1 }}>{children}</Box>
       </Box>
     </div>
   );

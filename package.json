@@ -16,15 +16,22 @@
     "@mui/icons-material": "^7.0.2",
     "@mui/material": "^7.0.2",
     "@mui/styled-engine-sc": "^7.0.2",
+    "axios": "^1.9.0",
+    "dayjs": "^1.11.13",
+    "js-cookie": "^3.0.5",
     "motion": "^12.9.2",
     "next": "15.3.1",
+    "query-string": "^9.1.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.56.1",
-    "styled-components": "^6.1.17"
+    "sonner": "^2.0.3",
+    "styled-components": "^6.1.17",
+    "swr": "^2.3.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.4",
+    "@types/js-cookie": "^3.0.6",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
