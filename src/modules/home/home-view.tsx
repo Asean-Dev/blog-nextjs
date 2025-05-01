@@ -5,8 +5,11 @@ import usePopover from "@/hook/use-popover";
 import SearchIcon from "@mui/icons-material/Search";
 import {
   Button,
+  IconButton,
   InputAdornment,
+  InputBase,
   MenuItem,
+  Paper,
   Popover,
   Stack,
   TextField,
@@ -65,8 +68,32 @@ const HomeView = (props: Props) => {
           gap: { xs: 2, sm: 2 },
         }}
       >
-        <TextField
+        <Paper
+          component="form"
+          sx={{
+            p: "2px 4px",
+            display: "flex",
+            alignItems: "center",
+            width: 1,
+            borderRadius: "8px",
+            border: " solid 1px #49A569",
+          }}
+        >
+          <IconButton type="button" sx={{ p: "10px" }} aria-label="search">
+            <SearchIcon />
+          </IconButton>
+          <InputBase
+            placeholder="Search "
+            sx={{
+              ml: 1,
+              flex: 1,
+            }}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </Paper>
+        {/* <TextField
           size={"small"}
+          label="Search"
           fullWidth
           sx={{
             "& .MuiOutlinedInput-root": {
@@ -89,7 +116,7 @@ const HomeView = (props: Props) => {
             ),
           }}
           onChange={(e) => setSearch(e.target.value)}
-        />
+        /> */}
         <Stack direction={"row"}>
           <Button
             ref={anchorRef}
@@ -136,7 +163,7 @@ const HomeView = (props: Props) => {
           </Popover>
           <Button
             variant={"contained"}
-            sx={{ bgcolor: "#49A569" }}
+            sx={{ bgcolor: "#49A569", textTransform: "none" }}
             // fullWidth
             endIcon={
               <Iconify

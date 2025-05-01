@@ -70,9 +70,10 @@ const EditBlog = ({ isOpen, refreshData, uuid }: Props) => {
   };
 
   const handleSubmit = methods.handleSubmit(async (data) => {
+    console.log("data", data);
     const update = await useUpdateBlog({ ...data, uuid: uuid });
     if (update.success) {
-      toast.success("You're create blog success.");
+      toast.success("Your blog has been edited.");
       isOpen.onFalse();
       refreshData();
     }
@@ -90,7 +91,7 @@ const EditBlog = ({ isOpen, refreshData, uuid }: Props) => {
         <AuthGuard>
           <Stack width={matches ? "500px" : "350px"}>
             <DialogTitle sx={{ m: 0, pt: 2 }} id="customized-dialog-title">
-              Create Post
+              Edit Post
             </DialogTitle>
             <IconButton
               aria-label="close"
@@ -114,7 +115,7 @@ const EditBlog = ({ isOpen, refreshData, uuid }: Props) => {
               <RHFTextFieldInput
                 name="titles"
                 multiline
-                rows={4}
+                // rows={4}
                 // fullWidth
                 label="Title"
               />
@@ -160,7 +161,7 @@ const EditBlog = ({ isOpen, refreshData, uuid }: Props) => {
                     type={"submit"}
                     onClick={handleSubmit}
                   >
-                    Post
+                    Comfirm
                   </Button>
                 </Box>
               </Stack>

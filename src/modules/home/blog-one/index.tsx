@@ -129,7 +129,7 @@ const BlogOne = ({ uuid }: Props) => {
         </Typography>
       </Stack>
       <Box>
-        <Chip size={"small"} label={"aaaa"} />
+        <Chip size={"small"} label={data?.status} />
       </Box>
       <Box>
         <Typography sx={{ fontSize: "16px", fontWeight: 600 }}>

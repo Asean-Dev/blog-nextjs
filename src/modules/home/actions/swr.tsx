@@ -4,7 +4,6 @@ import useSWR, { mutate } from "swr";
 
 import { IRespontBlog } from "./type";
 
-
 export function useBlog({ value }: { value: string }) {
   const URL = endpoints.blog;
 

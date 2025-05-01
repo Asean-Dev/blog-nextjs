@@ -54,7 +54,7 @@ const CreateBlog = ({ isOpen, refreshData }: Props) => {
   const handleSubmit = methods.handleSubmit(async (data) => {
     const create = await useCreateBlog({ ...data });
     if (create.success) {
-      toast.success("You're create blog success.");
+      toast.success("Your blog has been created.");
       isOpen.onFalse();
       refreshData();
     }
@@ -96,7 +96,7 @@ const CreateBlog = ({ isOpen, refreshData }: Props) => {
               <RHFTextFieldInput
                 name="titles"
                 multiline
-                rows={4}
+                // rows={4}
                 // fullWidth
                 label="Title"
               />

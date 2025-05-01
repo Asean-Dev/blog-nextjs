@@ -1,11 +1,12 @@
+import { AuthGuard } from "@/auth/guard";
 import BlogOne from "@/modules/home/blog-one";
 
-type Props = {
-  params: { uuid: string };
-};
+export default function Page({ params }: { params: { uuid: string } }) {
+  const { uuid } = params;
 
-export default async function Page({ params }: { params: { uuid: string } }) {
-  const { uuid } = await params;
-
-  return <BlogOne uuid={uuid} />;
+  return (
+    <AuthGuard>
+      <BlogOne uuid={uuid} />
+    </AuthGuard>
+  );
 }

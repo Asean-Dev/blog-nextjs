@@ -5,8 +5,11 @@ import usePopover from "@/hook/use-popover";
 import SearchIcon from "@mui/icons-material/Search";
 import {
   Button,
+  IconButton,
   InputAdornment,
+  InputBase,
   MenuItem,
+  Paper,
   Popover,
   Stack,
   TextField,
@@ -68,31 +71,29 @@ const BlogView = (props: Props) => {
           gap: { xs: 2, sm: 2 },
         }}
       >
-        <TextField
-          size={"small"}
-          fullWidth
+        <Paper
+          component="form"
           sx={{
-            "& .MuiOutlinedInput-root": {
-              "&:hover fieldset": {
-                borderColor: "#49A569",
-              },
-              "&.Mui-focused fieldset": {
-                borderColor: "#49A569",
-              },
-            },
-            "& .MuiInputLabel-root.Mui-focused": {
-              color: "#49A569", // สี label เมื่อ focus
-            },
+            p: "2px 4px",
+            display: "flex",
+            alignItems: "center",
+            width: 1,
+            borderRadius: "8px",
+            border: " solid 1px #49A569",
           }}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <SearchIcon />
-              </InputAdornment>
-            ),
-          }}
-          onChange={(e) => setSearch(e.target.value)}
-        />
+        >
+          <IconButton type="button" sx={{ p: "10px" }} aria-label="search">
+            <SearchIcon />
+          </IconButton>
+          <InputBase
+            placeholder="Search "
+            sx={{
+              ml: 1,
+              flex: 1,
+            }}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </Paper>
         <Stack direction={"row"} sx={{ mt: 0 }}>
           <Button
             ref={anchorRef}
@@ -110,7 +111,7 @@ const BlogView = (props: Props) => {
                   ease: "easeInOut",
                 }}
               >
-                <Stack alignItems={"center "} justifyContent={"center"}>
+                <Stack alignItems={"center"} justifyContent={"center"}>
                   <Iconify
                     icon={"iconamoon:arrow-down-2"}
                     sx={{ width: "20px", height: "20px" }}
@@ -139,7 +140,7 @@ const BlogView = (props: Props) => {
           </Popover>
           <Button
             variant={"contained"}
-            sx={{ bgcolor: "#49A569" }}
+            sx={{ bgcolor: "#49A569", textTransform: "none" }}
             // fullWidth
             endIcon={
               <Iconify

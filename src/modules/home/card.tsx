@@ -20,10 +20,10 @@ type Props = {
 
 const CardView = ({ data, search }: Props) => {
   const router = useRouter();
-
+  const path = (uuid: string) => `/home/${uuid}`;
   const handleVirwCommment = useCallback(
     (uuid: string) => {
-      router.push(`home/${uuid}`);
+      router.push(path(uuid));
     },
     [router]
   );
@@ -37,6 +37,7 @@ const CardView = ({ data, search }: Props) => {
             borderTop: index == 0 ? "0" : "solid 1px #BBC2C0 ",
           }}
           spacing={2}
+          onClick={() => handleVirwCommment(item.uuid)}
         >
           <Stack direction={"row"} justifyContent={"space-between"} width={1}>
             <Stack

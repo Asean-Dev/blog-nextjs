@@ -1,8 +1,9 @@
 "use client";
 import axios, { endpoints } from "@/utils/axios";
 import { getToken } from "@/utils/cookie";
+import { AxiosError } from "axios";
 import { IRespontBlogOne, IRespontCreateBlog } from "./types";
-
+import * as axiosErorr from "axios";
 export const useFindBlogOne = async ({
   uuid,
 }: {
@@ -17,8 +18,17 @@ export const useFindBlogOne = async ({
       },
     });
     return res.data;
-  } catch (error) {
-    throw new Error("Failed to sign in");
+  } catch (error: any) {
+    if (axiosErorr.isAxiosError(error)) {
+      const axiosError = error as AxiosError;
+      console.error(
+        "Axios error:",
+        axiosError.response?.data || axiosError.message
+      );
+      throw new Error("Failed to fetch blog data");
+    } else {
+      throw error;
+    }
   }
 };
 

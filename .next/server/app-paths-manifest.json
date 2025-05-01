@@ -1,6 +1,6 @@
 {
-  "/(main)/home/[uuid]/page": "app/(main)/home/[uuid]/page.js",
-  "/(main)/home/page": "app/(main)/home/page.js",
   "/(sing-in)/page": "app/(sing-in)/page.js",
+  "/(main)/home/page": "app/(main)/home/page.js",
+  "/(main)/home/[uuid]/page": "app/(main)/home/[uuid]/page.js",
   "/(main)/blog/page": "app/(main)/blog/page.js"
 }
