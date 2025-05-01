@@ -41,6 +41,7 @@ const SingInForm = (props: Props) => {
             fullWidth
             sx={{ bgcolor: "#49A569", textTransform: "none" }}
             type={"submit"}
+            onClick={handleSubmit}
           >
             Sign In
           </Button>
