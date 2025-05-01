@@ -1,10 +1,18 @@
 import Iconify from "@/components/iconify";
-import { Avatar, Box, Card, Chip, Stack, Typography } from "@mui/material";
+import {
+  Avatar,
+  Box,
+  Card,
+  Chip,
+  IconButton,
+  Stack,
+  Typography,
+} from "@mui/material";
 import { useRouter } from "next/navigation";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import { IBlogData } from "./actions/type";
 import HighlightedText from "./highlight-text";
-
+import { ReturnType } from "@/hook/use-boolean";
 type Props = {
   data: IBlogData[] | null;
   search: string;
@@ -30,22 +38,24 @@ const CardView = ({ data, search }: Props) => {
           }}
           spacing={2}
         >
-          <Stack
-            direction={"row"}
-            spacing={1}
-            alignItems={"center"}
-            justifyContent={"flex-start"}
-          >
-            <Avatar
-              sx={{ width: "31px", height: "31px" }}
-              src="/image/user.png"
-            />
-            <Typography
-              sx={{ fontSize: "14px", fontWeight: 500 }}
-              color={"gray"}
+          <Stack direction={"row"} justifyContent={"space-between"} width={1}>
+            <Stack
+              direction={"row"}
+              spacing={1}
+              alignItems={"center"}
+              justifyContent={"flex-start"}
             >
-              {item.user.userName}
-            </Typography>
+              <Avatar
+                sx={{ width: "31px", height: "31px" }}
+                src="/image/user.png"
+              />
+              <Typography
+                sx={{ fontSize: "14px", fontWeight: 500 }}
+                color={"gray"}
+              >
+                {item.user.userName}
+              </Typography>
+            </Stack>
           </Stack>
           <Box>
             <Chip size={"small"} label={item.status} />

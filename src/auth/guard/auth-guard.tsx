@@ -30,9 +30,6 @@ export function AuthGuard({ children }: Props) {
     if (token.token) return;
 
     let href = `/?${createQueryString("returnTo", pathname)}`;
-    if (pathname.includes("sign-out")) {
-      href = "/";
-    }
     toast.success("You're unauthorized. Please sign in to continue.");
     router.replace(href);
   }, [token.token]);

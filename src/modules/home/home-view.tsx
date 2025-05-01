@@ -23,6 +23,7 @@ type Props = {};
 const HomeView = (props: Props) => {
   const isOpen = useBoolean();
   const [value, setValue] = useState("Community");
+
   const { data, refreshData } = useBlog({
     value: value === "Community" ? "" : value,
   });
@@ -61,8 +62,8 @@ const HomeView = (props: Props) => {
           flexDirection: { xs: "column", sm: "row" },
           alignItems: "center",
           justifyContent: "space-between",
+          gap: { xs: 2, sm: 2 },
         }}
-        spacing={2}
       >
         <TextField
           size={"small"}
@@ -158,7 +159,7 @@ const HomeView = (props: Props) => {
 
 export default HomeView;
 
-const STATUS = [
+export const STATUS = [
   "Community",
   "History",
   "Food",

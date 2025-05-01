@@ -98,7 +98,7 @@ const CreateBlog = ({ isOpen, refreshData }: Props) => {
                 multiline
                 rows={4}
                 // fullWidth
-                label="title"
+                label="Title"
               />
               <RHFTextFieldInput
                 name="content"

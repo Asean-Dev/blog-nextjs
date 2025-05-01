@@ -16,10 +16,15 @@
       "static/chunks/main-app.js",
       "static/chunks/app/(main)/home/page.js"
     ],
-    "/(main)/home/[uuid]/page": [
+    "/(sing-in)/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(main)/home/[uuid]/page.js"
+      "static/chunks/app/(sing-in)/layout.js"
+    ],
+    "/(sing-in)/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(sing-in)/page.js"
     ],
     "/(main)/blog/layout": [
       "static/chunks/webpack.js",
@@ -30,6 +35,11 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(main)/blog/page.js"
+    ],
+    "/_not-found/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/_not-found/page.js"
     ]
   }
 }

@@ -6,7 +6,7 @@ import { useCallback } from "react";
 import { Toaster, toast } from "sonner";
 import { useForm } from "react-hook-form";
 import { useSignIn } from "./actions/client";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 type Props = {};
 type FormValues = {
   userName: string;
@@ -19,13 +19,15 @@ const SingInForm = (props: Props) => {
       userName: "",
     },
   });
+  const searchParams = useSearchParams();
 
+  const returnTo = searchParams.get("returnTo") || "/home";
   const handleSubmit = methods.handleSubmit(async (data) => {
     console.log("data", data);
     const result = await useSignIn({ userName: data.userName });
     if (result) {
       toast.success(result.message);
-      router.push("home");
+      router.push(returnTo);
     }
   });
 

@@ -6,13 +6,14 @@ import {
   MenuList,
   Stack,
   Typography,
+  useMediaQuery,
 } from "@mui/material";
 import React, { useCallback } from "react";
 import ListItemText from "@mui/material/ListItemText";
 import { usePathname, useRouter } from "next/navigation";
 type Props = {};
 
-const data = [
+export const MENU = [
   {
     label: "Home",
     paths: "/home",
@@ -47,7 +48,7 @@ const Menu = (props: Props) => {
       sx={{ width: "20%", pt: 4 }}
     >
       <MenuList sx={{ width: 1, p: 0 }}>
-        {data.map((item, index) => (
+        {MENU.map((item, index) => (
           <MenuItem
             key={index}
             sx={{ mb: 1 }}

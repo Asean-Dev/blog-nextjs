@@ -6,6 +6,9 @@ export const setToken = (token: string) => {
     path: "/",
   });
 };
+export const removedToken = () => {
+  Cookies.set("_jwt_token", "");
+};
 
 export const getToken = () => {
   // ดึง token จาก cookie

@@ -16,7 +16,6 @@ export const useFindBlogOne = async ({
         ...token.Authorization,
       },
     });
-
     return res.data;
   } catch (error) {
     throw new Error("Failed to sign in");
@@ -67,6 +66,54 @@ export const useCreateBlog = async ({
     const serializedDto = JSON.stringify({ status, titles, content });
     const token = getToken();
     const res = await axios.post(`${endpoints.blog}`, serializedDto, {
+      headers: {
+        "Content-Type": "application/json",
+        ...token.Authorization,
+      },
+    });
+    return res.data;
+  } catch (error) {
+    throw new Error("Failed to sign in");
+  }
+};
+
+type PayloadUpdateBlog = {
+  status: string;
+  titles: string;
+  content: string;
+  uuid: string;
+};
+
+export const useUpdateBlog = async ({
+  status,
+  titles,
+  content,
+  uuid,
+}: PayloadUpdateBlog): Promise<IRespontCreateBlog> => {
+  try {
+    const serializedDto = JSON.stringify({ status, titles, content });
+    const token = getToken();
+    const res = await axios.put(`${endpoints.blog}/${uuid}`, serializedDto, {
+      headers: {
+        "Content-Type": "application/json",
+        ...token.Authorization,
+      },
+    });
+
+    return res.data;
+  } catch (error) {
+    throw new Error("Failed to sign in");
+  }
+};
+type PayloadDeleteBlog = {
+  uuid: string;
+};
+export const useDeleteBlog = async ({
+  uuid,
+}: PayloadDeleteBlog): Promise<IRespontCreateBlog> => {
+  try {
+    const token = getToken();
+    const res = await axios.delete(`${endpoints.blog}/${uuid}`, {
       headers: {
         "Content-Type": "application/json",
         ...token.Authorization,

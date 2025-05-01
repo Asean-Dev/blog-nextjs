@@ -11,9 +11,10 @@ export function useUserInfo() {
   const url = qs.stringifyUrl({
     url: `${URL}/me`,
   });
-  const token = getToken();
-  // if (token.Authorization) {
-  const { data, isLoading, error, isValidating } = useSWR(url, fetcher);
+
+  const key = url;
+
+  const { data, isLoading, error, isValidating } = useSWR(key, fetcher);
 
   const memoizedValue = useMemo(
     () => ({
@@ -21,23 +22,9 @@ export function useUserInfo() {
       isListsLoading: isLoading,
       isListsError: error,
       isListsValidating: isValidating,
-      refreshData: () => mutate(url),
+      refreshData: () => mutate(key),
     }),
-    [data?.data, error, isLoading, isValidating]
+    [data, error, isLoading, isValidating, key]
   );
-
   return memoizedValue;
-  // } else {
-  //   const memoizedValue = useMemo(
-  //     () => ({
-  //       data: [],
-  //       isListsLoading: isLoading,
-  //       isListsError: error,
-  //       isListsValidating: isValidating,
-  //       refreshData: () => mutate(url),
-  //     }),
-  //     [data?.data, error, isLoading, isValidating]
-  //   );
-  //   return memoizedValue;
-  // }
 }
