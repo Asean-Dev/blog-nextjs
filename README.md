@@ -1,15 +1,3 @@
-# 🧠 NestJS API with Prisma + Supabase or PostgreSQL local
-
-## 📦 Tech Stack
-
-- **NestJS** – Scalable server-side framework
-- **Prisma** – Type-safe ORM with PostgreSQL
-- **Supabase** – Database hosting (PostgreSQL)
-- **TypeScript** – Typed JavaScript
-- **PostgreSQL Local** – Database hosting (PostgreSQL)
-
----
-
 ## 🚀 Getting Started
 
 ## หลังจาก clone โปรเจ็คเรียบร้อย
@@ -23,19 +11,15 @@ npm install
 ### 2. ทำ .env
 
 ```
-#supabase
-DATABASE_URL="postgresql://postgres.wivlegpyvkeqqobzvlod:P@ssw0rd@aws-0-ap-southeast-1.pooler.supabase.com:5432/postgres"
-#หรือ Local
-#DATABASE_URL="postgresql://[your_username]:[your_pass]@localhost:9000?schema=public"
-PORT=3441
-JWT_SECRET=TestKey
-JWT_EXPIRES_IN=1h
+NEXT_PUBLIC_API_URL=http://localhost:3441/
+# NEXT_PUBLIC_API_URL=https://api-test-production-5d16.up.railway.app/
+NEXT_PUBLIC_JWT_SECRET=TestKey
 ```
 
 ### 3. ถ้าใช้ supabase
 
 ```
-npm run start:dev
+npm run dev
 ```
 
 ### 4. ถ้าใช้ Local
