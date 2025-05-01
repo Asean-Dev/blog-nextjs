@@ -1,11 +1,9 @@
 "use client";
 
-import { useEffect, useCallback } from "react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useUserInfo } from "@/modules/sing-in/actions/swr";
-import { toast } from "sonner";
 import { getToken } from "@/utils/cookie";
-import { verifyJWT } from "@/utils/decode-jwt";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useCallback, useEffect } from "react";
+import { toast } from "sonner";
 
 type Props = {
   children: React.ReactNode;

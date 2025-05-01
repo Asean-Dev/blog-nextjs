@@ -1,6 +1,5 @@
 "use client";
 
-import { useUserInfo } from "@/modules/sing-in/actions/swr";
 import { getToken } from "@/utils/cookie";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
