@@ -69,6 +69,8 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 const BlogOne = ({ uuid }: Props) => {
   const isAddComment = useBoolean(true);
+
+  console.log("isAddComment", isAddComment.value);
   const router = useRouter();
   const matches = useMediaQuery("(min-width:600px)");
   const [data, setData] = useState<IBlogOneData>();
@@ -241,7 +243,7 @@ const BlogOne = ({ uuid }: Props) => {
       // sx={{ width: "90vh" }}
       onClose={handleDialogClose}
       aria-labelledby="customized-dialog-title"
-      open={openDialog.value}
+      open={!isAddComment.value}
     >
       <DialogTitle
         sx={{ m: 0, pt: 5, minWidth: "95vw" }}

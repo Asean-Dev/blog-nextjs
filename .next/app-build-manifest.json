@@ -1,21 +1,5 @@
 {
   "pages": {
-    "/(sing-in)/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(sing-in)/page.js"
-    ],
-    "/(sing-in)/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(sing-in)/layout.js"
-    ],
-    "/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/layout.css",
-      "static/chunks/app/layout.js"
-    ],
     "/(main)/home/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -26,15 +10,21 @@
       "static/chunks/main-app.js",
       "static/chunks/app/(main)/layout.js"
     ],
-    "/(main)/blog/page": [
+    "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(main)/blog/page.js"
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
     ],
-    "/(main)/blog/layout": [
+    "/(sing-in)/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(main)/blog/layout.js"
+      "static/chunks/app/(sing-in)/page.js"
+    ],
+    "/(sing-in)/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(sing-in)/layout.js"
     ],
     "/(main)/home/[uuid]/page": [
       "static/chunks/webpack.js",
