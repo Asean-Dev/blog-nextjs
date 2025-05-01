@@ -89,7 +89,7 @@ const EditBlog = ({ isOpen, refreshData, uuid }: Props) => {
     >
       <RHFProvider methods={methods} onSubmit={handleSubmit}>
         <AuthGuard>
-          <Stack width={matches ? "500px" : "350px"}>
+          <Stack width={matches ? "500px" : "300px"}>
             <DialogTitle sx={{ m: 0, pt: 2 }} id="customized-dialog-title">
               Edit Post
             </DialogTitle>
