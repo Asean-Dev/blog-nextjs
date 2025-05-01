@@ -116,7 +116,7 @@ const HeaderMini = (props: Props) => {
                       removedToken(), router.push("/");
                     }}
                   >
-                    Sing Out
+                    Sign Out
                   </Button>
                 </Stack>
               </MenuList>

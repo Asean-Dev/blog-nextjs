@@ -56,7 +56,7 @@ const Header = (props: Props) => {
                   removedToken(), refreshData(), router.push("/");
                 }}
               >
-                Sing Out
+                Sign Out
               </Button>
             </Stack>
           </Box>
@@ -91,7 +91,7 @@ const Header = (props: Props) => {
             sx={{ bgcolor: "#49A569" }}
             onClick={() => router.push("/")}
           >
-            Sing In
+            Sign In
           </Button>
         )}
       </Stack>

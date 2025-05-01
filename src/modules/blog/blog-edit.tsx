@@ -161,7 +161,7 @@ const EditBlog = ({ isOpen, refreshData, uuid }: Props) => {
                     type={"submit"}
                     onClick={handleSubmit}
                   >
-                    Comfirm
+                    Confirm
                   </Button>
                 </Box>
               </Stack>

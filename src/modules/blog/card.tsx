@@ -50,7 +50,7 @@ const CardBlogView = ({
   const hadleDelete = useCallback(async () => {
     const data = await useDeleteBlog({ uuid });
     if (data.success) {
-      toast.success("You're create blog success.");
+      toast.success("Your blog has been deleted.");
       isDelete.onFalse();
       refreshData();
     }

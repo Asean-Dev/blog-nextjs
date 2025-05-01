@@ -39,7 +39,7 @@ const SingInForm = (props: Props) => {
           <Button
             variant={"contained"}
             fullWidth
-            sx={{ bgcolor: "#49A569" }}
+            sx={{ bgcolor: "#49A569", textTransform: "none" }}
             type={"submit"}
           >
             Sign In
