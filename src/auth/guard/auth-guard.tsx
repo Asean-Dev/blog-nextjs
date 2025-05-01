@@ -5,6 +5,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useUserInfo } from "@/modules/sing-in/actions/swr";
 import { toast } from "sonner";
 import { getToken } from "@/utils/cookie";
+import { verifyJWT } from "@/utils/decode-jwt";
 
 type Props = {
   children: React.ReactNode;
@@ -25,7 +26,8 @@ export function AuthGuard({ children }: Props) {
     },
     [searchParams]
   );
-
+  // const verify = await verifyJWT(token.token || "");
+  // if (!verify) return;
   useEffect(() => {
     if (token.token) return;
 

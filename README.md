@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧠 NestJS API with Prisma + Supabase or PostgreSQL local
 
-## Getting Started
+## 📦 Tech Stack
 
-First, run the development server:
+- **NestJS** – Scalable server-side framework
+- **Prisma** – Type-safe ORM with PostgreSQL
+- **Supabase** – Database hosting (PostgreSQL)
+- **TypeScript** – Typed JavaScript
+- **PostgreSQL Local** – Database hosting (PostgreSQL)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 🚀 Getting Started
+
+## หลังจาก clone โปรเจ็คเรียบร้อย
+
+### 1. ติดตั้งโปรเจ็ค
+
+```
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. ทำ .env
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+#supabase
+DATABASE_URL="postgresql://postgres.wivlegpyvkeqqobzvlod:P@ssw0rd@aws-0-ap-southeast-1.pooler.supabase.com:5432/postgres"
+#หรือ Local
+#DATABASE_URL="postgresql://[your_username]:[your_pass]@localhost:9000?schema=public"
+PORT=3441
+JWT_SECRET=TestKey
+JWT_EXPIRES_IN=1h
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3. ถ้าใช้ supabase
 
-## Learn More
+```
+npm run start:dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 4. ถ้าใช้ Local
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+##### 🚀 เปิด comment local ใน .env setup postgresql ให้เรียบร้อย เเล้วรันคำสั่งตามนี้
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+npx prisma generate
 
-## Deploy on Vercel
+npx prisma db push
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 5. ทำการ Seed Data เบื้องต้น
+
+```
+npx prisma db seed
+
+npm run start:dev
+```
+
+### จะได้รับ Username : testUser มา จะมี Blog เบื่องต้นมาให้ด้วย
+
+### เริ่มรัน project next.js ได้เลย

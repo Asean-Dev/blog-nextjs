@@ -16,6 +16,7 @@ import {
 import { usePathname, useRouter } from "next/navigation";
 import { useCallback } from "react";
 import { MENU } from "./menu";
+import { removedToken } from "@/utils/cookie";
 
 type Props = {};
 
@@ -97,6 +98,27 @@ const HeaderMini = (props: Props) => {
                     </ListItemText>
                   </MenuItem>
                 ))}
+                <Stack
+                  direction={"row"}
+                  width={1}
+                  mt={5}
+                  justifyContent={"center"}
+                >
+                  <Button
+                    variant={"outlined"}
+                    sx={{
+                      color: "#49A569",
+                      borderColor: "#49A569",
+                      textTransform: "none",
+                      minWidth: 100,
+                    }}
+                    onClick={() => {
+                      removedToken(), router.push("/");
+                    }}
+                  >
+                    Sing Out
+                  </Button>
+                </Stack>
               </MenuList>
             </Stack>
           </Box>

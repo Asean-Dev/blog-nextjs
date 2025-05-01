@@ -19,7 +19,6 @@ export function GuestGuard({ children }: Props) {
   useEffect(() => {
     if (!token) return;
     if (token.token) {
-      
       router.replace(returnTo);
     }
   }, [token.token]);

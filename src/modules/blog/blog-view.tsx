@@ -65,6 +65,7 @@ const BlogView = (props: Props) => {
           flexDirection: { xs: "column", sm: "row" },
           alignItems: "center",
           justifyContent: "space-between",
+          gap: { xs: 2, sm: 2 },
         }}
       >
         <TextField
