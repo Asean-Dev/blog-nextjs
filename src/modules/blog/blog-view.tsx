@@ -6,13 +6,11 @@ import SearchIcon from "@mui/icons-material/Search";
 import {
   Button,
   IconButton,
-  InputAdornment,
   InputBase,
   MenuItem,
   Paper,
   Popover,
-  Stack,
-  TextField,
+  Stack
 } from "@mui/material";
 import { motion } from "framer-motion";
 import React, { useCallback, useEffect, useState } from "react";
